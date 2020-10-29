@@ -12,7 +12,7 @@
 
     <main>
         <ul>
-            <li th:each="type: ${types}"><a th:href="@{''/types/' + '${type.value}}" th:text="${type.value}"></a></li>
+            <li th:each="type: ${types}"><a th:href="@{'/types/' + ${type.value}}" th:text="${type.value}"></a></li>
         </ul>
     </main>
 </div>
