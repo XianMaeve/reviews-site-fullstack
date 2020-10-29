@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>A List of All My Reviews</title>
+    <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+<div id="container">
+    <header>
+        <h1>A List of All Reviews</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li th:each="types: ${types}"><a th:href="@{/type(id=${type.id})}" th:text="${type.value}"></a></li>
+            <li a href="/reviews"
+        </ul>
+    </main>
+</div>
+<footer>
+    <small>&copy 2020 XianMaeve</small>
+</footer>
+
+</body>
+</html>

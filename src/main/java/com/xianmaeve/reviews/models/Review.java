@@ -1,0 +1,76 @@
+package com.xianmaeve.reviews.models;
+
+import javax.persistence.*;
+import java.util.*;
+
+@Entity
+public class Review {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String title = "";
+    private String imageUrl = "";
+    @ManyToOne
+    private Type reviewCategory;
+    @Lob
+    private String reviewContent = "";
+    private String reviewType = "";
+    private String reviewDate = "";
+    @ManyToMany
+    private Collection<HashTags> reviewTags;
+
+    public Review() {};
+
+
+    public Review(String title, String imageUrl, Type reviewCategory, String reviewContent, String reviewDate, HashTags ...hashTags) {
+        this.id = id;
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.reviewCategory = reviewCategory;
+        this.reviewContent = reviewContent;
+        this.reviewType = reviewType;
+        this.reviewDate = reviewDate;
+        this.reviewTags = new ArrayList<>(Arrays.asList(hashTags));
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public Type getReviewCategory() {
+        return reviewCategory;
+    }
+
+    public String getReviewContent() {
+        return reviewContent;
+    }
+
+    public String getReviewDate() {
+        return reviewDate;
+    }
+
+    public Collection<HashTags> getReviewTags() {
+        return reviewTags;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Review review = (Review) o;
+        return Objects.equals(id, review.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}
