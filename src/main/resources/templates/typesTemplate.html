@@ -1,19 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>A List of All My Reviews</title>
+    <title>Categories of Reviews</title>
     <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
 <div id="container">
     <header>
-        <h1>A List of All Reviews</h1>
+        <h1>Categories of Reviews</h1>
     </header>
 
     <main>
         <ul>
-            <li th:each="types: ${types}"><a th:href="@{/type(id=${type.id})}" th:text="${type.value}"></a></li>
-            <li a href="/reviews"
+            <li th:each="type: ${types}"><a th:href="@{''/types/' + '${type.value}}" th:text="${type.value}"></a></li>
         </ul>
     </main>
 </div>

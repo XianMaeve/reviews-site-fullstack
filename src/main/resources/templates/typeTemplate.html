@@ -2,19 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${type.value}"> reviews</title>
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/style.css"/>
 </head>
 <body>
 <div id="container">
     <header>
-        <h1 th:text="${type.value}"> reviews</h1>
-        <button><a href="/reviews">All Reviews</a></button>
+        <h1> All <span th:text="${type.value}"></span> Reviews</h1>
     </header>
 
     <main>
-        <ul>
-            <h3 th:text="${reviewModel.title}"></h3>
-        </ul>
+        <nav>
+            <ul>
+                <h3 th:each="review:${type.reviews}">
+                    <a th:href="@{'/reviews/' + ${review.id}}" th:text="${review.title}"></a>
+                </h3>
+            </ul>
+        </nav>
+        <a href="/types">return to categories</a>
     </main>
 </div>
 <footer>

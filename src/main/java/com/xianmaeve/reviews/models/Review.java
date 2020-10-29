@@ -16,13 +16,11 @@ public class Review {
     private String reviewContent = "";
     private String reviewType = "";
     private String reviewDate = "";
-    @ManyToMany
-    private Collection<HashTags> reviewTags;
 
     public Review() {};
 
 
-    public Review(String title, String imageUrl, Type reviewCategory, String reviewContent, String reviewDate, HashTags ...hashTags) {
+    public Review(String title, String imageUrl, Type reviewCategory, String reviewContent, String reviewDate) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -30,7 +28,6 @@ public class Review {
         this.reviewContent = reviewContent;
         this.reviewType = reviewType;
         this.reviewDate = reviewDate;
-        this.reviewTags = new ArrayList<>(Arrays.asList(hashTags));
     }
 
     public long getId() {
@@ -55,10 +52,6 @@ public class Review {
 
     public String getReviewDate() {
         return reviewDate;
-    }
-
-    public Collection<HashTags> getReviewTags() {
-        return reviewTags;
     }
 
     @Override

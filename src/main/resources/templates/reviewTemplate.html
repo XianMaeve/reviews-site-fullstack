@@ -1,26 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${reviewModel.title}">A review</title>
+    <title th:text="${review.title}">: A review</title>
     <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
 <div id="container">
 <header>
-    <h1 th:text="${reviewModel.title}">A review</h1>
-    <button><a href="/reviews">All Reviews</a></button>
+    <h1 th:text="${review.title}">: A review</h1>
+    <button><a href="/types">All Reviews</a></button>
 </header>
 
 <main>
     <ul>
-        <h3 th:text="${reviewModel.title}"></h3>
-        <li><img th:src="${reviewModel.imageUrl}"></img></li>
+        <h3 th:text="${review.title}"></h3>
+        <li><img th:src="${review.imageUrl}"></img></li>
     </ul>
-    <p id="content" th:text="${reviewModel.reviewContent}"></p>
+    <p id="content" th:text="${review.reviewContent}"></p>
 </main>
 </div>
 <footer>
-    <small>&copy <span th:text="${reviewModel.reviewDate}"></span> XianMaeve</small>
+    <small>&copy <span th:text="${review.reviewDate}"></span> XianMaeve</small>
 </footer>
 
 </body>

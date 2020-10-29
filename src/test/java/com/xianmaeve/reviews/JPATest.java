@@ -1,6 +1,5 @@
 package com.xianmaeve.reviews;
 
-import com.xianmaeve.reviews.models.HashTags;
 import com.xianmaeve.reviews.models.Review;
 import com.xianmaeve.reviews.models.Type;
 import com.xianmaeve.reviews.repositories.ReviewRepository;
@@ -28,8 +27,7 @@ public class JPATest {
     @Test
     public void typeShouldListReviews() {
         Type testType = new Type("Test");
-        HashTags testTag1 = new HashTags();
-        Review testReview1 = new Review("Test1", "url", testType, "content", "date", testTag1);
+        Review testReview1 = new Review("Test1", "url", testType, "content", "date");
 
         typeRepo.save(testType);
         reviewRepo.save(testReview1);

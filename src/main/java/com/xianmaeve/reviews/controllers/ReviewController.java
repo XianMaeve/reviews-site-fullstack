@@ -1,6 +1,6 @@
 package com.xianmaeve.reviews.controllers;
 
-import com.xianmaeve.reviews.models.Type;
+import com.xianmaeve.reviews.models.Review;
 import com.xianmaeve.reviews.repositories.ReviewRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,5 +20,12 @@ public class ReviewController {
     public String displayReviews(Model model) {
         model.addAttribute("reviewsModel", reviewRepo.findAll());
         return "reviewsTemplate";
+    }
+
+    @GetMapping("/reviews/{id}")
+    public String displayReview(@PathVariable Long id, Model model) {
+        Review foundReview = reviewRepo.findReviewById(id);
+        model.addAttribute("review", foundReview);
+        return "reviewTemplate";
     }
 }
