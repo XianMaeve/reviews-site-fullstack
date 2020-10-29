@@ -27,6 +27,11 @@ public class Review {
         this.reviewDate = reviewDate;
     }
 
+    //testing constructor
+    public Review(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

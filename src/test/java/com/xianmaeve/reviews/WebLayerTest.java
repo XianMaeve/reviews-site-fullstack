@@ -1,5 +1,7 @@
 package com.xianmaeve.reviews;
 
+import com.xianmaeve.reviews.models.Review;
+import com.xianmaeve.reviews.models.Type;
 import com.xianmaeve.reviews.repositories.ReviewRepository;
 import com.xianmaeve.reviews.repositories.TypeRepository;
 import org.junit.jupiter.api.Test;
@@ -10,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -23,7 +26,7 @@ public class WebLayerTest {
     private TypeRepository typeRepo;
 
     @MockBean
-    private ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepo;
 
     @Autowired
     private MockMvc mockMvc;
@@ -39,12 +42,13 @@ public class WebLayerTest {
     }
 
     @Test
-    public void ReviewShould200andReturnReviewViewWithModelAttribute() throws Exception {
-        mockMvc.perform(get("/reviews"))
+    public void typeShould200andReturnTypeViewWithModelAttribute() throws Exception {
+        Type testType = new Type("test");
+        when(typeRepo.findTypeByValue("test1")).thenReturn(testType);
+        mockMvc.perform(get("/types/test"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("reviewsTemplate"))
-                .andExpect(model().attributeExists("reviews"));
-
+                .andExpect(view().name("typeTemplate"))
+                .andExpect(model().attributeExists("type"));
     }
 }

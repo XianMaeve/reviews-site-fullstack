@@ -29,6 +29,15 @@ body {
 #container a:visited {
     text-decoration: none;
 }
+
+#main-header {
+    margin-bottom: 6.75vh;
+}
+
+header {
+    text-align: center;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -64,4 +73,8 @@ main img {
 
 main li {
     list-style-type: none;
+}
+
+footer {
+    text-align: center;
 }

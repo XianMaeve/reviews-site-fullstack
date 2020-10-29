@@ -28,15 +28,17 @@ public class JPATest {
     public void typeShouldListReviews() {
         Type testType = new Type("Test");
         Review testReview1 = new Review("Test1", "url", testType, "content", "date");
+        Review testReview2 = new Review("Test2", "url", testType, "content", "date");
 
         typeRepo.save(testType);
         reviewRepo.save(testReview1);
+        reviewRepo.save(testReview2);
 
         entityManager.flush();
         entityManager.clear();
 
         Optional<Type> pulledTypeOpt = typeRepo.findById(testType.getId());
         Type pulledType = pulledTypeOpt.get();
-        assertThat(pulledType.getReviews()).contains(testReview1);
+        assertThat(pulledType.getReviews()).contains(testReview1, testReview2);
     }
 }
