@@ -17,7 +17,7 @@ body {
     padding-top: 1vw;
 }
 
-#container button {
+#container nav {
     margin-left: 3vw;
     margin-bottom: 1vw;
 }
@@ -29,7 +29,6 @@ body {
 #container a:visited {
     text-decoration: none;
 }
-
 main {
     display: flex;
     flex-direction: column;
@@ -56,6 +55,7 @@ main a:visited {
 
 main img {
     max-width: 40%;
+    max-height: 30vh;
 }
 
 #content {

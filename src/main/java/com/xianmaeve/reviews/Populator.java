@@ -19,7 +19,7 @@ public class Populator implements CommandLineRunner {
     private ReviewRepository reviewRepo;
 
     @Override
-    public void run(String...args) throws Exception {
+    public void run(String... args) throws Exception {
 
         Type vampire = new Type("Vampire");
         typeRepo.save(vampire);
@@ -47,12 +47,12 @@ public class Populator implements CommandLineRunner {
                 "2020");
         reviewRepo.save(damon);
 
-        Review jacob = new Review("Jacob", "images/jacob.png", werewolf,
+        Review jacob = new Review("Jacob", "/images/jacob.jpg", werewolf,
                 "The werewolf counterpart to Edward.  Similarly silly (especially his aversion to shirts).",
                 "2020");
         reviewRepo.save(jacob);
 
-        Review zevon = new Review("Warren Zevon", "images/warrenzevon.png", werewolf,
+        Review zevon = new Review("Warren Zevon", "/images/zevon.jpg", werewolf,
                 "I'm not sure if he's actually a werewolf, but he seems to know a lot about them...  Kinda sus",
                 "2020");
         reviewRepo.save(zevon);

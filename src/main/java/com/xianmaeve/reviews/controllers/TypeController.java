@@ -22,10 +22,10 @@ public class TypeController {
         return "typesTemplate";
     }
 
-   @GetMapping("/types/{value}")
+    @GetMapping("/types/{value}")
     public String displayType(@PathVariable String value, Model model) {
         Type retrievedType = typeRepo.findTypeByValue(value);
         model.addAttribute("type", retrievedType);
         return "typeTemplate";
-   }
+    }
 }

@@ -2,22 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${review.title}">: A review</title>
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="/style/style.css"/>
 </head>
 <body>
 <div id="container">
-<header>
-    <h1 th:text="${review.title}">: A review</h1>
-    <button><a href="/types">All Reviews</a></button>
-</header>
+    <header>
+        <h1 th:text="${review.title}">: A review</h1>
+        <nav>
+            <button><a href="/types">Review Categories</a></button>
+            <button>
+                <a th:href="@{'/types/' + ${review.reviewCategory.value}}">
+                    All <span th:text="${review.reviewCategory.value}"></span> Reviews
+                </a>
+            </button>
+        </nav>
+    </header>
 
-<main>
-    <ul>
-        <h3 th:text="${review.title}"></h3>
-        <li><img th:src="${review.imageUrl}"></img></li>
-    </ul>
-    <p id="content" th:text="${review.reviewContent}"></p>
-</main>
+    <main>
+        <ul>
+            <h3 th:text="${review.title}"></h3>
+            <li><img th:src="${review.imageUrl}"></img></li>
+        </ul>
+        <p id="content" th:text="${review.reviewContent}"></p>
+    </main>
 </div>
 <footer>
     <small>&copy <span th:text="${review.reviewDate}"></span> XianMaeve</small>

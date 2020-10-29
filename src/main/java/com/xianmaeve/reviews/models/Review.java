@@ -14,23 +14,20 @@ public class Review {
     private Type reviewCategory;
     @Lob
     private String reviewContent = "";
-    private String reviewType = "";
     private String reviewDate = "";
 
-    public Review() {};
-
+    public Review() {
+    }
 
     public Review(String title, String imageUrl, Type reviewCategory, String reviewContent, String reviewDate) {
-        this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
         this.reviewCategory = reviewCategory;
         this.reviewContent = reviewContent;
-        this.reviewType = reviewType;
         this.reviewDate = reviewDate;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

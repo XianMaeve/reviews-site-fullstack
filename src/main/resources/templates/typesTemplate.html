@@ -2,17 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Categories of Reviews</title>
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/style.css"/>
 </head>
 <body>
 <div id="container">
-    <header>
+    <header id="main-header">
         <h1>Categories of Reviews</h1>
     </header>
 
     <main>
         <ul>
-            <li th:each="type: ${types}"><a th:href="@{'/types/' + ${type.value}}" th:text="${type.value}"></a></li>
+            <h3 class="categories" th:each="type: ${types}">
+                <a th:href="@{'/types/' + ${type.value}}"
+                   th:text="${type.value}"></a>
+            </h3>
         </ul>
     </main>
 </div>

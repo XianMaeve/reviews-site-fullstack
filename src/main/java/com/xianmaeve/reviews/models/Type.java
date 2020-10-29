@@ -1,9 +1,6 @@
 package com.xianmaeve.reviews.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -14,20 +11,29 @@ public class Type {
     @GeneratedValue
     private Long id;
     private String value;
-    @OneToMany
+    @OneToMany(mappedBy = "reviewCategory")
     private Collection<Review> reviews;
 
-    public Type() {};
+    public Type(Collection<Review> reviews) {
+        this.reviews = reviews;
+    }
 
-    public Type(String type) {
-        this.value = type;
+    public Type(String value) {
+        this.value = value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public Type() {
+
     }
 
     public String getValue() {
         return value;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
@@ -35,7 +41,6 @@ public class Type {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public Collection<Review> getReviews() {
